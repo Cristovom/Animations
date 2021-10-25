@@ -71,6 +71,13 @@ main{
 main .block {
     color: #000;
 }
+.block-content {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 .block-content .block{
     padding: 10px;
     position: relative;
@@ -106,12 +113,22 @@ main .block {
 .block .icons-main a:hover:before{
     border-left: 4px solid #63d5ec;
     border-right: 4px solid #63d5ec;
-    transform: skewY(20deg);
+    /* transform: skewY(20deg); */
+    animation: rotate 1s linear infinite alternate;
 }
 .block .icons-main a:hover:after{
     border-top: 4px solid #63d5ec;
     border-bottom: 4px solid #63d5ec;
-    transform: skewX(-20deg);
+    /* transform: skewX(-20deg); */
+    animation: rotate 1s linear infinite alternate;
+}
+@keyframes rotate {
+    from {
+        transform: skew(20deg);
+    }
+    to {
+        transform: skew(-20deg);
+    }
 }
 .footer{
     display: flex;
@@ -134,3 +151,49 @@ main .block {
     font-size: 1em;
     padding: 7px
 }
+.svgs {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+svg {
+    width: 200px;
+    height: 300px;
+}
+/* path {
+    animation: dash 5s linear forwards;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 140%;
+        stroke-dashoffset: 140%;
+    }
+    60% {
+        stroke-dasharray: 14%;
+        stroke-dashoffset: 14%;
+    }
+    100% {
+        stroke-dasharray: 0%;
+        stroke-dashoffset: 0%;
+    }
+} */
+
+
+path {
+    /* stroke: #FFC300; */
+    stroke-width: 2px;
+    stroke-dashoffset: -2000;
+    stroke-dasharray: 2000;
+    animation: monkey 3s forwards;
+}
+
+@keyframes monkey {
+    0% {
+      stroke-dashoffset: -2000;
+    }
+    100% {
+    stroke-dashoffset:0;
+    }
+  }
